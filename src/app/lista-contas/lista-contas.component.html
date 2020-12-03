@@ -1,0 +1,14 @@
+<div>
+    Saldo no Componente Pai: {{ listaContas[0].saldo }}
+    <br>
+    <app-conta [valor]="listaContas[0].saldo"
+     [nomeBanco]="listaContas[0].nomeBanco" (valorChange)="atualizaConta($event)" ></app-conta>
+</div>
+
+<div>
+    Santander:
+    <br>
+    Saldo no Componente Pai: {{ contaSantander }}
+    <br>
+    <app-conta  nomeBanco="Santander" (valorNegativo)="imprimeEvento($event)"   [(valor)]="contaSantander"></app-conta>
+</div>
