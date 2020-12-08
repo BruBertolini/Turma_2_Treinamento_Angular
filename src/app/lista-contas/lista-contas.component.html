@@ -1,14 +1,38 @@
-<div>
-    Saldo no Componente Pai: {{ listaContas[0].saldo }}
+<!-- <div>
+    {{listaContas[0].nomeBanco}}:
+    <br>
+    <span [ngStyle]="{'font-weight': listaContas[0].saldo < 0 ? 'bold' : 'normal'}" >
+        Saldo no Componente Pai: {{ listaContas[0].saldo }}
+    </span>
     <br>
     <app-conta [valor]="listaContas[0].saldo"
      [nomeBanco]="listaContas[0].nomeBanco" (valorChange)="atualizaConta($event)" ></app-conta>
 </div>
-
+<br>
 <div>
     Santander:
     <br>
     Saldo no Componente Pai: {{ contaSantander }}
     <br>
     <app-conta  nomeBanco="Santander" (valorNegativo)="imprimeEvento($event)"   [(valor)]="contaSantander"></app-conta>
+</div> -->
+
+
+<div *ngFor="let c of listaContas" >
+    {{c.nomeBanco}}:
+    <br>
+    <span [ngStyle]="{'font-weight': c.saldo < 0 ? 'bold' : 'normal'}" >
+        Saldo no Componente Pai: {{ c.saldo }}
+    </span>
+    <br>
+    <app-conta  [(valor)]="c.saldo" [nomeBanco]="c.nomeBanco" ></app-conta>
+
+    <br>
+
+    <div [ngSwitch]="c.saldo" >
+        <span *ngSwitchCase="-10" >Conta -10</span>
+        <span *ngSwitchCase="100" >Conta com 100</span>
+        <span *ngSwitchCase="200">Conta com 200</span>
+        <span *ngSwitchDefault >-</span>
+    </div>
 </div>

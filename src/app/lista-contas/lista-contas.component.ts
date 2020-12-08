@@ -9,7 +9,8 @@ export class ListaContasComponent implements OnInit {
 
   listaContas = [
     { nomeBanco: 'Bradesco', saldo: 10 },
-    { nomeBanco: 'Santander', saldo: 100 }
+    { nomeBanco: 'Santander', saldo: 100 },
+    { nomeBanco: 'Itaú', saldo: 100 }
   ];
 
   contaSantander = 99;

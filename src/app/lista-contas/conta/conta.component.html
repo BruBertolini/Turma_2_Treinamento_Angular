@@ -1,4 +1,7 @@
-<div>
+<div [ngClass]="{
+    'menor-0': valor < 0,
+    'maior-100': valor > 100
+}" >
     Saldo no banco {{ nomeBanco }}: {{ valor }}
 </div>
 <div>
