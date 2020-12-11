@@ -5,7 +5,10 @@ import { ListaContasComponent } from './lista-contas/lista-contas.component';
 
 const rotas = [
   { path: '', component: HelloWorldComponent },
-  { path: 'contas', component: ListaContasComponent },
+  { path: 'contas', component: ListaContasComponent,
+  children: [
+    { path: 'hello', component: HelloWorldComponent },
+], },
 ];
 
 @NgModule({

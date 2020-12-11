@@ -1,0 +1,58 @@
+<form [formGroup]="form" (ngSubmit)="salvar()">
+  <div>
+    <label for="nome">Nome:</label>
+    <input type="text" name="nome" formControlName="nomeDoUsuario" required />
+    <span
+      *ngIf="
+        form.get('nomeDoUsuario').touched &&
+        form.get('nomeDoUsuario').errors?.minlength
+      "
+    >
+      Nome precisa ter 3 letras</span
+    >
+
+    <span
+      *ngIf="
+        form.get('nomeDoUsuario').touched &&
+        form.get('nomeDoUsuario').errors?.required
+      "
+    >
+      Informação Obrigatória</span
+    >
+  </div>
+  <div>
+    <label for="email">E-mail:</label>
+    <input type="email" name="email" formControlName="email" required />
+    <span *ngIf="form.get('email').touched && form.get('email').errors?.email">
+      Email no formato inválido</span
+    >
+
+    <span
+    *ngIf="
+      form.get('email').touched &&
+      form.get('email').errors?.required
+    "
+  >
+    Informação Obrigatória</span
+  >
+  </div>
+  <div>
+    <label for="idade">Idade:</label>
+    <input type="number" name="idade" formControlName="idade" required />
+    <span *ngIf="form.get('idade').touched && form.get('idade').errors?.min">
+      idade tem que ser maior que 0</span
+    >
+
+    <span
+    *ngIf="
+      form.get('idade').touched &&
+      form.get('idade').errors?.required
+    "
+  >
+    Informação Obrigatória</span
+  >
+  </div>
+  <div>
+    <button type="submit" [disabled]="form.invalid">Salvar</button>
+  </div>
+</form>

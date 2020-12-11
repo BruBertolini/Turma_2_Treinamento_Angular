@@ -8,6 +8,7 @@ import { ContaComponent } from './lista-contas/conta/conta.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AppRouterModule } from './app.routing.module';
+import { FormulariosModule } from './formularios/formularios.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { AppRouterModule } from './app.routing.module';
     ListaContasComponent,
     ContaComponent,
   ],
-  imports: [BrowserModule, FormsModule, AppRouterModule],
+  imports: [BrowserModule, FormsModule, AppRouterModule, FormulariosModule],
   providers: [],
   bootstrap: [AppComponent],
 })

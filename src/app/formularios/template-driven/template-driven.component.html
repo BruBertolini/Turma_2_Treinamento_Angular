@@ -1,0 +1,20 @@
+<form (ngSubmit)="salvar()" #formulario="ngForm">
+  <div>
+    <label for="nome">Nome:</label>
+    <input type="text" name="nome" (blur)="validar()" [(ngModel)]="model.nome" required />
+    <span>{{ msgErroNome }}</span>
+  </div>
+  <div>
+    <label for="email">E-mail:</label>
+    <input type="email" name="email" [(ngModel)]="model.email" required />
+  </div>
+  <div>
+    <label for="idade">Idade:</label>
+    <input type="number" (blur)="validar()" name="idade" [(ngModel)]="model.idade" required />
+    <span>{{ msgErroIdade }}</span>
+  </div>
+  <div>
+    <button type="submit" [disabled]="formulario.form.invalid">Salvar</button>
+  </div>
+</form>
+
